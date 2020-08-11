@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
-import "../assets/css/fonts.css";
+import "../assets/css/fonts.scss";
 import colors from "../config/colors";
 import Haiven from "./haiven";
 

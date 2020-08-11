@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../assets/css/fonts.css";
+import "../assets/css/fonts.scss";
 
 import colors from "../config/colors";
 

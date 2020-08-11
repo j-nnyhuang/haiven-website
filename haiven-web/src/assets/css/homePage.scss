@@ -1,0 +1,16 @@
+@import "../../config/_colors.scss";
+
+.slogan {
+  color: $primary;
+  display: inline-block;
+  font-size: 400%;
+}
+
+h1.gradient span {
+  background: linear-gradient(0deg, $tertiary 40%, rgba(255, 0, 255, 0) 20%);
+}
+
+.Col,
+.Row {
+  display: inline-block;
+}

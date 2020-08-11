@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "../assets/css/fonts.css";
-import "../assets/css/footer.css";
+import "../assets/css/fonts.scss";
+import "../assets/css/footer.scss";
 import colors from "../config/colors";
 
 class Footer extends Component {
