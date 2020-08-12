@@ -10,6 +10,7 @@ class Header extends Component {
     return (
       <React.Fragment>
         <Navbar
+          sticky="top"
           justify="true"
           style={{ backgroundColor: colors.primary, padding: 20 }}
           expand="sm"
