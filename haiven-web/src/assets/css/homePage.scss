@@ -10,7 +10,32 @@ h1.gradient span {
   background: linear-gradient(0deg, $tertiary 40%, rgba(255, 0, 255, 0) 20%);
 }
 
-.Col,
-.Row {
-  display: inline-block;
+.primary {
+  background-color: $primary;
+}
+
+.secondary {
+  background-color: $secondary;
+}
+
+.tertiary {
+  background-color: $tertiary;
+}
+
+.white {
+  background-color: $white;
+}
+
+.center {
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.row {
+  padding: 20px;
 }
