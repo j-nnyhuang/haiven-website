@@ -3,12 +3,12 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import "../assets/css/fonts.scss";
 import "../assets/css/homePage.scss";
-import { Row, Col, Container } from "react-bootstrap";
-import {
-  AiOutlineSafety,
-  AiOutlinePhone,
-  AiOutlineExclamationCircle,
-} from "react-icons/ai";
+import { Row, Col, Container, Card } from "react-bootstrap";
+
+import { ReactComponent as Secure } from "../assets/icons/undraw_safe.svg";
+import { ReactComponent as Calling } from "../assets/icons/undraw_calling.svg";
+import { ReactComponent as Alert } from "../assets/icons/undraw_alert.svg";
+
 import colors from "../config/colors.js";
 
 export class Slogan extends Component {
@@ -29,18 +29,16 @@ class Statistics extends Component {
       <React.Fragment>
         <h1>760,000 CANADIANS</h1>
         <Row>
-          <Col>
+          <Col className="mx-auto my-auto">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
           </Col>
-          <Col className="justify-content-md-center">
+          <Col className="d-flex align-content-around">
             <Row>
               <Col>
                 <h5 class="tertiary center padding">Emotional</h5>
@@ -72,31 +70,43 @@ class Features extends Component {
         <h1>What We Do</h1>
         <Row>
           <Col>
-            <h5>Aggression Detection</h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
+            <Card>
+              <Card.Body>
+                <Card.Title>
+                  <h5>Aggression Detection</h5>
+                </Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+            </Card>
           </Col>
           <Col>
-            <h5>Emotion Analysis</h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
+            <Card>
+              <Card.Body>
+                <Card.Title>
+                  <h5>Emotion Analysis</h5>
+                </Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+            </Card>
           </Col>
           <Col>
-            <h5>Journaling</h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
+            <Card>
+              <Card.Body>
+                <Card.Title>
+                  <h5>Journaling</h5>
+                </Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
       </React.Fragment>
@@ -109,14 +119,11 @@ class SafetyFeature extends Component {
   render() {
     return (
       <React.Fragment>
-        <Col>
+        <Col className="center">
           <h5>{this.props.safetyFeature}</h5>
-          <Row>
-            <Col md="auto">{this.props.children}</Col>
-            <Col>
-              <p>{this.props.safetyDescription}</p>
-            </Col>
-          </Row>
+          {this.props.children}
+
+          <p>{this.props.safetyDescription}</p>
         </Col>
       </React.Fragment>
     );
@@ -135,27 +142,35 @@ class Safety extends Component {
             safetyDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           >
-            <AiOutlineSafety style={{ fill: colors.tertiary }} size={100} />
+            <Secure className="svg" />
           </SafetyFeature>
           <SafetyFeature
             safetyFeature="Emergency Contact"
             safetyDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           >
-            <AiOutlinePhone style={{ fill: colors.tertiary }} size={100} />
+            <Calling className="svg" />
           </SafetyFeature>
           <SafetyFeature
-            safetyFeature="Emergency Contact"
+            safetyFeature="Quick Exit"
             safetyDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           >
-            <AiOutlineExclamationCircle
-              style={{ fill: colors.tertiary }}
-              size={100}
-            />
+            <Alert className="svg" />
           </SafetyFeature>
         </Row>
       </React.Fragment>
+    );
+  }
+}
+
+class Content extends Component {
+  state = {};
+  render() {
+    return (
+      <Row className={"content " + this.props.styleName}>
+        {this.props.children}
+      </Row>
     );
   }
 }
@@ -165,23 +180,23 @@ export default function HomePage() {
     <React.Fragment>
       <Header />
       <Container fluid>
-        <Row className="px-sm-1">
-          <Col>
+        <Row>
+          <Col className="center">
             <Slogan />
           </Col>
-          <Col>
+          <Col className="center">
             <img src={require("../assets/Prototype.PNG")} />
           </Col>
         </Row>
-        <Row className="secondary">
+        <Content styleName="secondary" style={{ paddingBottom: 0 }}>
           <Statistics />
-        </Row>
-        <Row>
+        </Content>
+        <Content styleName="padding-bottom-none">
           <Features />
-        </Row>
-        <Row>
+        </Content>
+        <Content>
           <Safety />
-        </Row>
+        </Content>
         <Row className="primary">
           <Footer />
         </Row>
