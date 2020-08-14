@@ -1,8 +1,10 @@
+@import "../../config/_colors.scss";
+
 ul {
   list-style: none;
   padding: 0;
 }
 
 h6 {
-  color: #ffffff;
+  color: $grey;
 }
